@@ -1,0 +1,5 @@
+[21/12/2024 20:05:06 INFO serbserver] Started server on http://0.0.0.0:8080/
+[21/12/2024 20:05:06 INFO actix_server::builder] starting 2 workers
+[21/12/2024 20:05:06 INFO actix_server::server] Actix runtime found; starting in Actix runtime
+[21/12/2024 20:05:06 INFO actix_server::server] starting service: "actix-web-service-0.0.0.0:8080", workers: 2, listening on: 0.0.0.0:8080
+[21/12/2024 20:05:28 INFO serbserver::requests] Number of lines changed 150 | Commit 124c5bc2517de12f5b7f1aca3240c3bdafc6ca85 | Additions: 100 | Deletions: 50 | Files changed: 9
