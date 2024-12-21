@@ -1,8 +1,8 @@
 from github import Github
 
 g = Github()
-repo = g.get_repo("Glitchyi/super-barnacle")
-commit = repo.get_commit("da44c18641b8bec6b0f091c5d1aeaaf551569fb9")
+repo = g.get_repo("Glitchyi/shiny-meme")
+commit = repo.get_commit("ce1f41d70e940bed49fb95248440f7482efe8ddd")
 
 updates = commit.stats.raw_data
 

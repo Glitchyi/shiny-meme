@@ -1,15 +1,30 @@
 use actix_web::{post, web::{self}, App, HttpResponse, HttpServer, Responder};
 use serde_json::Value;
+mod requests;
 
 #[post("/webhook")]
 async fn webhook(payload: web::Json<Value>) -> impl Responder {
     let payload_inner = payload.into_inner();
-    if let Some(after) = payload_inner.get("after"){
-        println!("After {}",after);
-        HttpResponse::Ok().json(after)
-    }else{
-        HttpResponse::Ok().body("Missing commit change info")
-    }
+    let commit: &Value = if let Some(value) = payload_inner.get("after") {
+        println!("Commit {}", value);
+        value
+    } else {
+        &serde_json::Value::Null
+    };
+
+    let original_repo: &Value = if let Some(repo) = payload_inner.get("repository") {
+        if let Some(full_name) = repo.get("full_name") {
+            full_name
+        } else {
+            &serde_json::Value::Null
+        }
+    } else {
+        &serde_json::Value::Null
+    };
+    requests::line_changes(commit.to_string().as_str(),original_repo.to_string().as_str()).await;
+    let response_data = serde_json::json!({ "commit": commit, "original_repo": original_repo });
+    println!("{:?}",response_data);
+    HttpResponse::Ok()
 }
 
 #[actix_web::main]
