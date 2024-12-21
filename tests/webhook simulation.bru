@@ -1,0 +1,21 @@
+meta {
+  name: webhook simulation
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://10.12.27.48:8080/webhook
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "after": "124c5bc2517de12f5b7f1aca3240c3bdafc6ca85",
+    "repository": {
+      "full_name": "mits-foss/soc-frontend"
+    }
+  }
+  
+}
