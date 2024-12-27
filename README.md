@@ -1,3 +1,14 @@
+Freatures to add:
+- Integrate GitHub OAuth for user login and token retrieval.
+- Add SQLite schema for:
+  - Users
+  - API keys (for rate limit handling)
+  - Repositories and pull requests
+- Dashboard:
+  - Total repositories and pull requests (open/closed).
+  - User leaderboard with points for accepted pull requests.
+- Dockerize the application for easy deployment.
+
 # Github stats collector
 
 ### TODO
